@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content2 %}
+<h1 class="mt-3 bold-text">TimeLine</h1>
+<div class="projects mb-5">
+    <form id="timeLine-posts-form" onsubmit="postFormData(event)">
+        <div class="mb-3">
+            <label for="title" class="form-label bold-text lead">Title:</label>
+            <input type="text" name="name" id="name" data-form-type="other" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label bold-text lead">Email:</label>
+            <input type="email" name="email" id="email" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="title" class="form-label bold-text lead">Content:</label>
+            <input type="text" name="content" id="content" data-form-type="other"  class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<h3 class="mt-3 bold-text">Posts</h3>
+<div id="posts"></div>
+{% endblock %}
