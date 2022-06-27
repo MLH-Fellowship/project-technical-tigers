@@ -51,6 +51,10 @@ def education():
 def timeline():
     return render_template('timeline.html', data= DATA.about_me_data, title='Timeline', url=os.getenv('URL'))
 
+@app.route('/base')
+def base():
+    return render_template('base2.html',  data= DATA.about_me_data)
+
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
     name = request.form['name']
