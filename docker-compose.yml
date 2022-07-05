@@ -1,5 +1,4 @@
 version: "3"
-
 services:
   myportfolio:
     container_name: myportfolio
@@ -24,5 +23,6 @@ services:
       - .env
     volumes:
       - mydatabase:/var/lib/mysql
+
 volumes:
   mydatabase:
