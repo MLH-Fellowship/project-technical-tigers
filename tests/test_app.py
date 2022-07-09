@@ -43,6 +43,14 @@ class AppTestCase(unittest.TestCase):
         assert first_post_name == 'John Doe'
         self.client.delete("/api/timeline_post", data = {'name' : 'John Doe'})
 
+        # checking the timeline page
+        response = self.client.get("/timeline")
+        assert response.status_code == 200
+        html = response.get_data(as_text=True)
+        assert "<h1 class=\"mt-3 bold-text\">TimeLine</h1>" in html
+        assert "<button type=\"submit\" class=\"btn btn-primary\">Submit</button>" in html
+        assert "<h3 class=\"mt-3 bold-text\">Posts</h3>" in html
+
     def test_malformed_timeline_post(self):
         # POST request missing name
         response = self.client.post("/api/timeline_post", data = {'email' : 'john@example.com', 'content' : 'Hello world, I\'m John!'})
