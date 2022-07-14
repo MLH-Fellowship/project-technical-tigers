@@ -1,0 +1,72 @@
+{
+  "skill_sets": [
+    {
+      "id": 0,
+      "title": "Frontend Developer",
+      "subtitle": "More than 4 years",
+      "icon": "uil uil-brackets-curly skills-icon",
+      "skills": [
+        {
+          "name": "HTMl",
+          "level": "90%"
+        },
+        {
+          "name": "CSS",
+          "level": "80%"
+        },
+        {
+            "name": "react",
+            "level": "70%"
+        },
+        {
+            "name": "JavaScript",
+            "level": "60%"
+        }
+      ]
+    },
+    {
+        "id": 1,
+        "title": "Backend Developer",
+        "subtitle": "More than 2 years",
+        "icon": "uil uil-server skills-icon",
+        "skills": [
+          {
+            "name": "Python",
+            "level": "90%"
+          },
+          {
+            "name": "Node Js",
+            "level": "80%"
+          },
+          {
+              "name": "Express",
+              "level": "70%"
+          },
+          {
+              "name": "MySQL",
+              "level": "60%"
+          }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Dev Ops",
+        "subtitle": "1 year",
+        "icon": "uil uil-cog skills-icon",
+        "skills": [
+          {
+            "name": "Bash",
+            "level": "90%"
+          },
+          {
+            "name": "Docker",
+            "level": "80%"
+          },
+          {
+              "name": "Github Actions",
+              "level": "70%"
+          }
+        ]
+    }
+  ]
+}

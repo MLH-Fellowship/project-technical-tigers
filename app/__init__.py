@@ -45,27 +45,28 @@ def check(email):
 
 @app.route('/')
 def landing_page():
-    return render_template('landingPage.html', data = DATA.landing_page_data, landing_page=True, url=os.getenv('URL'))
+    return render_template('_landingPage.html', data = DATA.landing_page_data, landing_page=True, url=os.getenv('URL'))
 
 @app.route('/about-me')
 def about_me():
-    return render_template('about-me.html', data= DATA.about_me_data, url=os.getenv('URL'))
+    return render_template('_about-me.html', data= DATA.about_me_data, url=os.getenv('URL'))
 
 @app.route('/education-and-work-expirience')
 def projects():
-    return render_template('education-and-work-expirience.html', data = DATA.expiriences_data, url=os.getenv('URL'))
+    return render_template('_education-and-work-expirience.html', data = DATA.expiriences_data, url=os.getenv('URL'))
 
 @app.route('/projects')
 def education():
-    return render_template('projects.html', data = DATA.projects_data, url=os.getenv('URL'))
+    return render_template('_projects.html', data = DATA.projects_data, url=os.getenv('URL'))
 
 @app.route('/timeline')
 def timeline():
-    return render_template('timeline.html', data= DATA.about_me_data, title='Timeline', url=os.getenv('URL'))
+    return render_template('_timeline.html', data= DATA.about_me_data, title='Timeline', url=os.getenv('URL'))
 
 @app.route('/base')
 def base():
-    return render_template('base2.html',  data= DATA.about_me_data)
+    DATA = Data_Loader()
+    return render_template('home.html',  data= DATA.skills_data)
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
