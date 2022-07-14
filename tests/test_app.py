@@ -14,11 +14,8 @@ class AppTestCase(unittest.TestCase):
         assert response.status_code == 200
         html = response.get_data(as_text=True)
         assert "<title>MLH Fellow</title>" in html
-        assert "<p>Hey there my name is </p>" in html
-        assert "<a href=\"/about-me\">About Me</a>" in html
-        assert "<a href=\"/education-and-work-expirience\">Work Experience & Education</a>" in html
-        assert "<a href=\"/projects\">Projects</a>" in html
-        assert "<h3 class=\"contact-me-footer\">Contact Me:</h3>" in html
+        assert "<h1 class=\"home-title\">Hello, I'm Brandon!</h1>" in html
+        assert "<h3 class=\"home-subtitle\">Production Engineering Fellow</h3>" in html 
 
     def test_timeline(self):
         response = self.client.get("/api/timeline_post")
