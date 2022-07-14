@@ -45,7 +45,9 @@ def check(email):
 
 @app.route('/')
 def landing_page():
-    return render_template('_landingPage.html', data = DATA.landing_page_data, landing_page=True, url=os.getenv('URL'))
+    DATA = Data_Loader()
+    return render_template('home.html',  data= DATA.skills_data)
+    
 
 @app.route('/about-me')
 def about_me():
@@ -65,8 +67,7 @@ def timeline():
 
 @app.route('/base')
 def base():
-    DATA = Data_Loader()
-    return render_template('home.html',  data= DATA.skills_data)
+    return render_template('_landingPage.html', data = DATA.landing_page_data, landing_page=True, url=os.getenv('URL'))
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
