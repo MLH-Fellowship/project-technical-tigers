@@ -1,0 +1,83 @@
+<section class="experience section">
+    <h2 class="section-title">Experience</h2>
+    <span class="section-subtitle">My personal journey</span>
+
+    <div class="experience-container container">
+        <div class="experience-tabs">
+            <div class="experience-button button-flex experience-active" data-target='#education'>
+                <i class="uil uil-graduation-cap experience-icon"></i>
+                Education
+            </div>
+            <div class="experience-button button-flex" data-target='#work'>
+                <i class="uil uil-briefcase-alt experience-icon"></i>
+                Work
+            </div>
+        </div>
+        <div class="experience-sections">
+            <!--Experience content #1-->
+            <div class="experience-content experience-active" data-content id="education">
+                <!--Experience #1-->
+                {% for educational_experience in (experiences_data['education']) %}
+                <div class="experience-data">
+                    {% if educational_experience.id % 2 == 0 %}
+                    <div></div>
+                
+                    <div>
+                        <span class="experience-rounder"></span>
+                    </div>
+                    {% endif %}
+                    
+                    <div>
+                        <h3 class="experience-title">{{ educational_experience.title }}</h3>
+                        <span class="experience-subtitle">{{ educational_experience.subtitle }}</span>
+                        <div class="experience-calendar">
+                            <i class="uil uil-calendar-alt"></i>
+                            {{ educational_experience.date }}
+                        </div>
+                    </div>
+
+                    {% if educational_experience.id % 2 != 0 %}
+                    <div>
+                        <span class="experience-rounder"></span>
+                        <span class="experience-line"></span>
+                    </div>
+                    {% endif%}       
+                
+                </div>
+                {% endfor %}               
+            </div>
+            <!--Experience content #2-->
+            <div class="experience-content" data-content id="work">
+                <!--Experience #1-->
+                {% for work_experience in (experiences_data['work']) %}
+                <div class="experience-data">
+                    {% if work_experience.id % 2 == 0 %}
+                    <div></div>
+                
+                    <div>
+                        <span class="experience-rounder"></span>
+                    </div>
+                    {% endif %}
+                    
+                    <div>
+                        <h3 class="experience-title">{{ work_experience.title }}</h3>
+                        <span class="experience-subtitle">{{ work_experience.subtitle }}</span>
+                        <div class="experience-calendar">
+                            <i class="uil uil-calendar-alt"></i>
+                            {{ work_experience.date }}
+                        </div>
+                    </div>
+
+                    {% if work_experience.id % 2 != 0 %}
+                    <div>
+                        <span class="experience-rounder"></span>
+                        <span class="experience-line"></span>
+                    </div>
+                    {% endif%}       
+                
+                </div>
+                {% endfor %}               
+            </div>
+        </div>
+    </div>
+</section>

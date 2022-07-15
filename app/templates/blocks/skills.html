@@ -2,7 +2,7 @@
     <h2 class="section-title">Skills</h2>
     <span class="section-subtitle">My technical level</span>
     <div class="skills-container container grid">
-    {% for skillSet in (data['skill_sets']) %}
+    {% for skillSet in (skills_data['skill_sets']) %}
         <div>
         {% if skillSet.id == 0 %}
             <div class="skills-content skills-open">

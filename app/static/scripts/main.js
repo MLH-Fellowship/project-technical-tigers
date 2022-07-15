@@ -30,6 +30,7 @@ const scrollUpEvent = () =>{
 
 window.addEventListener('scroll', scrollUpEvent);
 
+// Skills
 const skillsContent = document.getElementsByClassName("skills-content");
 const skillsHeader = document.querySelectorAll(".skills-header");
 
@@ -46,4 +47,26 @@ function toggleSkills(){
 
 skillsHeader.forEach((element) =>{
     element.addEventListener("click", toggleSkills)
+})
+
+// Experience tabs
+const tabs= document.querySelectorAll('[data-target]')
+const tabContents= document.querySelectorAll('[data-content]')
+
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        const target = document.querySelector(tab.dataset.target);
+        
+        tabContents.forEach(tabContent => {
+            tabContent.classList.remove('experience-active')
+        })
+
+        target.classList.add('experience-active');
+
+        tabs.forEach(tab => {
+            tab.classList.remove('experience-active')
+        })
+
+        tab.classList.add('experience-active')
+    })
 })
