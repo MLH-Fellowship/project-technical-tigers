@@ -463,10 +463,6 @@ img{
     column-gap: 1.5rem;
 }
 
-.experience-data:nth-child(even){
-    text-align: right;
-}
-
 .experience-title{
     font-size: var(--h3-font-size);
     font-weight: var(--font-medium);
@@ -653,6 +649,10 @@ img{
         display: grid;
         grid-template-columns: .6fr;
         justify-content: center;
+    }
+
+    .experience-data:nth-child(even){
+        text-align: right;
     }
 
     .footer-copyright{
