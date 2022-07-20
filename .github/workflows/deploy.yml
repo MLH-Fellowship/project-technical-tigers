@@ -33,5 +33,7 @@ jobs:
       
       - name: Print container status
         run: ssh my-vps 'docker compose -f ~/project-technical-tigers/docker-compose.prod.yml ps'
-
+      
+      - name: Discord Notification
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
                  
