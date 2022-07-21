@@ -9,10 +9,7 @@ on:
 jobs:
   test:
     name: "Test App"
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Run unit tests"
-        uses: "BrandonMagana/project-technical-tigers/.github/workflows/test.yml@main"
+    uses: "BrandonMagana/project-technical-tigers/.github/workflows/test.yml@main"
 
   deploy:
     name: "Deploy to VPS"
