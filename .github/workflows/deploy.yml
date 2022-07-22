@@ -1,0 +1,49 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  
+jobs:
+  test:
+    name: "Test App"
+    uses: "BrandonMagana/project-technical-tigers/.github/workflows/test.yml@main"
+
+  deploy:
+    name: "Deploy to VPS"
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy-key.pem
+          chmod 600  ~/.ssh/deploy-key.pem
+          cat >> ~/.ssh/config <<END
+          Host my-vps
+            HostName $SSH_IP
+            User $SSH_USER
+            IdentityFile ~/.ssh/deploy-key.pem
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_IP: ${{ secrets.SSH_IP }}
+      
+      - name: Deploy site
+        run: ssh my-vps '~/redeploy-site.sh'
+      
+      - name: Print container status
+        run: ssh my-vps 'docker compose -f ~/project-technical-tigers/docker-compose.prod.yml ps'
+      
+      - name: Discord Notification
+        if: success()
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
+      
+      - name: Discord failure 
+        if: failure()
+        run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed"
+      
